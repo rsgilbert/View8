@@ -1,0 +1,19 @@
+Get the release for your relevant nodejs build that was used to make the
+bytecode from https://github.com/suleram/View8/releases and put it in the Bin folder.
+
+In my case, the bytecode was compiled using Nodejs 18 so I 
+got the release file 10.2.154.26.exe at https://github.com/suleram/View8/releases/download/v1.0/10.2.154.26.exe .
+
+I had to rename the file to 10.2.154.4.exe because thats the version the View8 code expected.
+
+Now install the dependency:
+pip install parse
+
+Now run the decompilation command:
+python .\view8.py -input_file .\index.js -output_file ind.js
+
+
+PS:
+The app I was decompiling was originally created using @vercel/pkg. I had to 
+first generate the bytecode using a repo called pkg-unpacker (https://github.com/LockBlock-dev/pkg-unpacker).
+This gave me the index.js file which I first inspected using the hex editor and decompiled using this View8 repo.
